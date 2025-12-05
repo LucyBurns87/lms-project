@@ -2,6 +2,58 @@
 
 This is a full-stack Learning Management System (LMS) project built using Django for the backend, Django Rest Framework for the API, and React for the frontend. The project supports user authentication and role-based functionality for students, teachers, and admins.
 
+Website Name: CODE FOR YOU
+Coding Courses
+
+Student Role
+Students are the primary users consuming content and tracking progress.
+Course Enrollment: Browse available courses and enroll.
+Dashboard: Personalized view showing enrolled courses, progress, upcoming deadlines, and grades.
+Progress Tracking: Visual indicators (progress bars, completion percentages).
+Assessments: Submit assignments, take quizzes/tests, and view feedback.
+Communication: Messaging or discussion boards with teachers and peers.
+Certificates: Download completion certificates (if applicable).
+
+Teacher Role
+Teachers manage content and interact with students.
+Course Creation & Management: Add/edit course titles, descriptions, modules, and resources.
+Assignment Management: Create assignments, set deadlines, grade submissions.
+Quiz/Exam Builder: Create quizzes with multiple question types.
+Student Tracking: View student progress, performance analytics, and attendance.
+Feedback & Communication: Provide comments, grades, and announcements.
+Content Moderation: Approve or update course materials.
+
+Admin Role
+Admins oversee the entire system and manage users.
+User Management: Create, edit, or deactivate student/teacher accounts.
+Role Assignment: Assign roles (student, teacher, admin).
+Course Oversight: Approve courses created by teachers, manage categories.
+System Settings: Configure authentication, security policies, and integrations.
+Analytics Dashboard: System-wide reports (active users, course popularity, completion rates).
+Content Moderation: Ensure compliance with standards and remove inappropriate content.
+Platform Maintenance: Manage backups, updates, and deployment.
+
+Implementation Notes
+Authentication & Authorization: Use Django’s built-in authentication with role-based access control.
+Frontend Views: React components tailored per role (e.g., student dashboard vs. teacher dashboard).
+API Layer: Django REST Framework endpoints secured with permissions (e.g., IsAdminUser, custom role-based permissions).
+Database Design:
+User table with role field (student/teacher/admin).
+Course table linked to teacher.
+Enrollment table linking students to courses.
+Progress table tracking completion.
+
+
+<img width="1394" height="838" alt="image" src="https://github.com/user-attachments/assets/d8f32d53-00af-4e91-8c20-5cb72ccd4a0f" />
+
+<img width="1393" height="877" alt="image" src="https://github.com/user-attachments/assets/dfcb93f4-f301-4782-8d1f-02cc4e5d95c3" />
+
+
+
+Tests have been carried out in Postman 
+
+
+
 ## Project Structure
 ```
 lms-project/
@@ -137,3 +189,5 @@ Contributions are welcome! Please open an issue or submit a pull request for any
 ## License
 
 This project is licensed under the MIT License.
+
+
