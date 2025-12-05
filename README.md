@@ -4,40 +4,71 @@ This is a full-stack Learning Management System (LMS) project built using Django
 
 ## Project Structure
 
-```
-lms-project
-├── backend
-│   ├── manage.py
-│   ├── requirements.txt
-│   ├── .env.example
-│   ├── lms_backend
-│   │   ├── __init__.py
-│   │   ├── asgi.py
-│   │   ├── settings.py
-│   │   ├── urls.py
-│   │   └── wsgi.py
-│   ├── apps
-│   │   ├── users
-│   │   ├── courses
-│   │   └── core
-│   └── tests
-├── frontend
-│   ├── package.json
-│   ├── .env.example
-│   ├── public
-│   │   └── index.html
-│   └── src
-│       ├── index.jsx
-│       ├── App.jsx
-│       ├── api
-│       ├── components
-│       ├── context
-│       ├── hooks
-│       ├── pages
-│       └── styles
-├── .gitignore
+lms-project/
+├── backend/
+│ ├── manage.py # Django management script
+│ ├── requirements.txt # Python dependencies
+│ ├── db.sqlite3 # SQLite database
+│ ├── lms_backend/
+│ │ ├── settings.py # Django configuration
+│ │ ├── urls.py # Main URL routing
+│ │ └── wsgi.py # WSGI application
+│ └── apps/
+│ ├── users/ # User authentication & profiles
+│ │ ├── models.py # Custom User model with roles
+│ │ ├── serializers.py # DRF serializers
+│ │ ├── views.py # API views
+│ │ ├── permissions.py # Custom permissions
+│ │ └── urls.py # User endpoints
+│ ├── courses/ # Course management
+│ │ ├── models.py # Course and Enrollment models
+│ │ ├── serializers.py # Course serialization
+│ │ ├── views.py # Course ViewSets
+│ │ └── urls.py # Course endpoints
+│ ├── assignments/ # Assignment & submission system
+│ │ ├── models.py # Assignment and Submission models
+│ │ ├── serializers.py # Assignment serialization
+│ │ ├── views.py # Assignment ViewSets
+│ │ └── urls.py # Assignment endpoints
+│ └── core/
+│ ├── permissions.py # Shared permission classes
+│ └── utils.py # Utility functions
+├── frontend/
+│ ├── package.json # Node dependencies
+│ ├── public/
+│ │ └── index.html # HTML template
+│ └── src/
+│ ├── index.jsx # React entry point
+│ ├── App.jsx # Root component
+│ ├── api/
+│ │ ├── axios.js # Axios instance with interceptors
+│ │ ├── auth.js # Authentication API calls
+│ │ ├── courses.js # Course API calls
+│ │ ├── assignments.js # Assignment API calls
+│ │ ├── submissions.js # Submission API calls
+│ │ └── enrollments.js # Enrollment API calls
+│ ├── components/
+│ │ ├── auth/ # Login and registration forms
+│ │ ├── courses/ # Course components
+│ │ ├── assignments/ # Assignment components
+│ │ ├── submissions/ # Submission components
+│ │ ├── common/ # Reusable components (Navbar, Toast, etc.)
+│ │ └── ProtectedRoute.jsx # Route protection
+│ ├── context/
+│ │ ├── AuthContext.jsx # Authentication state
+│ │ └── ToastContext.jsx # Notification system
+│ ├── hooks/
+│ │ └── useAuth.js # Authentication hook
+│ ├── pages/
+│ │ ├── Home.jsx # Landing page
+│ │ ├── StudentDashboard.jsx # Student dashboard
+│ │ ├── TeacherDashboard.jsx # Teacher dashboard
+│ │ ├── AdminDashboard.jsx # Admin dashboard
+│ │ ├── AssignmentDetail.jsx # Assignment details
+│ │ ├── SubmissionDetail.jsx # Submission details
+│ │ └── Profile.jsx # User profile
+│ └── styles/ # CSS files
 └── README.md
-```
 
 ## Features
 
