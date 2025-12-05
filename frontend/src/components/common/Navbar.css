@@ -1,0 +1,77 @@
+/* Reset default body margin */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar styling */
+.navbar {
+  position: fixed;       /* stays at the top */
+  top: 0;                /* anchor to top */
+  left: 0;
+  width: 100%;           /* full width */
+  height: 60px;          /* adjust as needed */
+  background-color: #2196f3; /* example color */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  color: white;
+  z-index: 1000;         /* ensure it’s above other elements */
+}
+
+/* Push page content below navbar */
+.main-content {
+  padding-top: 60px;     /* equal to navbar height */
+}
+.navbar-brand a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-menu {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.navbar-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-logout {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-logout:hover {
+  background-color: #c0392b;
+}
+
+.btn-teacher-login {
+  background-color: #27ae60;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.btn-teacher-login:hover {
+  background-color: #229954;
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "model": "courses.course",
+    "pk": 1,
+    "fields": {
+      "title": "HTML Course",
+      "description": "Learn HTML basics and structure",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 2,
+    "fields": {
+      "title": "CSS Learning",
+      "description": "Master CSS styling and layouts",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 3,
+    "fields": {
+      "title": "Javascript",
+      "description": "JavaScript fundamentals and advanced concepts",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 4,
+    "fields": {
+      "title": "UI and UX",
+      "description": "User Interface and User Experience Design",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 5,
+    "fields": {
+      "title": "React and Redux",
+      "description": "React components and Redux state management",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 6,
+    "fields": {
+      "title": "GitHub",
+      "description": "Version control with Git and GitHub",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 7,
+    "fields": {
+      "title": "Agile",
+      "description": "Agile methodologies and practices",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 8,
+    "fields": {
+      "title": "Python",
+      "description": "Python programming language essentials",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  },
+  {
+    "model": "courses.course",
+    "pk": 9,
+    "fields": {
+      "title": "Django",
+      "description": "Django web framework and REST APIs",
+      "created_by": null,
+      "date_created": "2025-01-01T00:00:00Z"
+    }
+  }
+]

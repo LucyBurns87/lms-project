@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('coding-background.jpg');
+  background-size: cover;
+  background-position: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 1200px;
+}
+
+.highlight:nth-child(1),
+.highlight:nth-child(5),
+.highlight:nth-child(9) {
+  color: #e63946; /* Red */
+}
+
+.highlight:nth-child(2),
+.highlight:nth-child(6),
+.highlight:nth-child(10) {
+  color: #457b9d; /* Blue */
+}
+
+.highlight:nth-child(3),
+.highlight:nth-child(7) {
+  color: #f4a261; /* Orange */
+}
+
+.highlight:nth-child(4),
+.highlight:nth-child(8) {
+  color: #2a9d8f; /* Green */
+}
+
+
+button {
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  margin: 20px;
+  padding: 10px 20px;
+  border: 2px solid #003366; /* Dark blue border */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+.login-button {
+  background-color: white; /* White background for login buttons */
+}
+
+.course-button {
+  background-color: black; /* Black background for course buttons */
+  color: #5eace9; /* Light blue text color */
+}
+
+.course-button:hover {
+  background-color: #333; /* Darker shade for hover effect */
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the items */
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px;
+  flex: 1 1 30%; /* Flex properties to create a three-column layout */
+  display: flex;
+  justify-content: center; /* Center the button within the list item */
+}
+
+li button {
+  width: 200px;
+  background-color: #f8f9fa;
+  color: #007bff;
+}
+
+li button:hover {
+  background-color: #ddd;
+}
+
+.highlight {
+  color: #007bff;
+  background-color: #e6e6e6;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.course-link {
+  display: inline-block; /* Display as block for button-like appearance */
+  text-decoration: none; /* Remove default underline */
+  color: #add8e6; /* Light blue text color */
+  background-color: black; /* Black background */
+  padding: 10px 20px;
+  margin: 10px;
+  border: 2px solid #003366; /* Dark blue border */
+  border-radius: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.course-link:hover {
+  background-color: #333; /* Darker shade for hover effect */
+  transform: translateY(-2px);
+}

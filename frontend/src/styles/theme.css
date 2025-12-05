@@ -1,0 +1,21 @@
+:root {
+  /* 🎨 Colors */
+  --primary-color: #007acc;     /* Brand blue */
+  --secondary-color: #28a745;   /* Success green */
+  --danger-color: #dc3545;      /* Error red */
+  --background-color: #f9f9f9;  /* Neutral background */
+  --text-color: #333333;        /* Default text */
+
+  /* ✍️ Typography */
+  --font-family: 'Roboto', sans-serif;
+  --heading-font-weight: 600;
+  --body-font-weight: 400;
+
+  /* 📏 Spacing */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+
+  /* 🔲 Border radius */
+  --radius: 6px;
+}

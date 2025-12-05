@@ -1,0 +1,65 @@
+.submission-form-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.submission-form-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.submission-form-card h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.assignment-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid #3498db;
+}
+
+.assignment-info h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.course-name {
+  color: #7f8c8d;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+}
+
+.assignment-description {
+  margin: 1rem 0;
+}
+
+.assignment-description h4 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.assignment-description p {
+  color: #555;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.due-date {
+  color: #e74c3c;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+.submission-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

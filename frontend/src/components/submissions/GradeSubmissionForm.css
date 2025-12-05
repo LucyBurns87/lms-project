@@ -1,0 +1,91 @@
+.grade-form-container {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.grade-form-card {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.grade-form-card h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  text-align: center;
+}
+
+.submission-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+.info-row:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #7f8c8d;
+}
+
+.info-value {
+  color: #2c3e50;
+}
+
+.info-value.grade {
+  font-weight: 700;
+  color: #27ae60;
+  font-size: 1.25rem;
+}
+
+.submission-content {
+  margin-bottom: 2rem;
+}
+
+.submission-content h3 {
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.content-box {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #3498db;
+  white-space: pre-wrap;
+  line-height: 1.6;
+  color: #2c3e50;
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.file-attachment {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #e8f4f8;
+  border-radius: 4px;
+}
+
+.file-attachment a {
+  color: #3498db;
+  margin-left: 0.5rem;
+}
+
+.grade-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

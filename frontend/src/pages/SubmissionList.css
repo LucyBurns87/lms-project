@@ -1,0 +1,88 @@
+.submission-list-container {
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.submission-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.submission-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  color: #3498db;
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.submission-filters {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+}
+
+.submission-filters button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.submission-filters button.active {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.submissions-grouped {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.assignment-group-title {
+  color: #2c3e50;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.submission-count {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin-left: 0.5rem;
+}
+
+.submission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.5rem;
+}

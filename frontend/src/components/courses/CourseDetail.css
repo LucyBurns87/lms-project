@@ -1,0 +1,17 @@
+css
+.status-message {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: green;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #005fa3;
+}

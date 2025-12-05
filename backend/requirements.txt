@@ -1,0 +1,24 @@
+Django>=4.2.16,<5.0
+django-allauth>=65.13.1
+djangorestframework>=3.15.0
+django-cors-headers>=4.3.1
+
+# Core Django framework
+Django>=4.2.16,<5.0
+
+# Authentication & User Management
+django-allauth>=65.13.1,<66.0
+djangorestframework-simplejwt>=5.3.1
+
+# REST API
+djangorestframework>=3.15.0
+
+# Middleware & Utilities
+django-cors-headers>=4.3.1
+
+# Database & ORM helpers
+sqlparse>=0.5.1
+
+# Environment & Packaging
+setuptools>=75.0.0
+wheel>=0.44.0

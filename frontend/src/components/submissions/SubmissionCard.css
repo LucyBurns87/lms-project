@@ -1,0 +1,105 @@
+.submission-card {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submission-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.submission-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.student-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.student-icon {
+  font-size: 1.5rem;
+}
+
+.student-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.grade-badge {
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.875rem;
+}
+
+.grade-excellent {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.grade-good {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+.grade-average {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.grade-passing {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.grade-failing {
+  background-color: #f5c6cb;
+  color: #721c24;
+}
+
+.grade-badge.pending {
+  background-color: #e7e7e7;
+  color: #6c757d;
+}
+
+.submission-content {
+  margin-bottom: 1rem;
+}
+
+.content-preview {
+  color: #555;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.submission-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+  font-size: 0.85rem;
+  color: #7f8c8d;
+}
+
+.has-attachment {
+  color: #3498db;
+}
+
+.feedback-preview {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background-color: #f8f9fa;
+  border-left: 3px solid #3498db;
+  font-size: 0.85rem;
+  color: #555;
+}
