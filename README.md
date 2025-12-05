@@ -3,7 +3,7 @@
 This is a full-stack Learning Management System (LMS) project built using Django for the backend, Django Rest Framework for the API, and React for the frontend. The project supports user authentication and role-based functionality for students, teachers, and admins.
 
 ## Project Structure
-
+```
 lms-project/
 ├── backend/
 │ ├── manage.py # Django management script
@@ -69,6 +69,7 @@ lms-project/
 │ │ └── Profile.jsx # User profile
 │ └── styles/ # CSS files
 └── README.md
+```
 
 ## Features
 
