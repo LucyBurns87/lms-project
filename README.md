@@ -3,9 +3,11 @@
 This is a full-stack Learning Management System (LMS) project built using Django for the backend, Django Rest Framework for the API, and React for the frontend. The project supports user authentication and role-based functionality for students, teachers, and admins.
 
 Website Name: CODE FOR YOU
+
 Coding Courses
 
-Student Role
+Student Role:
+
 Students are the primary users consuming content and tracking progress.
 Course Enrollment: Browse available courses and enroll.
 Dashboard: Personalized view showing enrolled courses, progress, upcoming deadlines, and grades.
@@ -14,7 +16,8 @@ Assessments: Submit assignments, take quizzes/tests, and view feedback.
 Communication: Messaging or discussion boards with teachers and peers.
 Certificates: Download completion certificates (if applicable).
 
-Teacher Role
+Teacher Role: 
+
 Teachers manage content and interact with students.
 Course Creation & Management: Add/edit course titles, descriptions, modules, and resources.
 Assignment Management: Create assignments, set deadlines, grade submissions.
@@ -23,7 +26,8 @@ Student Tracking: View student progress, performance analytics, and attendance.
 Feedback & Communication: Provide comments, grades, and announcements.
 Content Moderation: Approve or update course materials.
 
-Admin Role
+Admin Role: 
+
 Admins oversee the entire system and manage users.
 User Management: Create, edit, or deactivate student/teacher accounts.
 Role Assignment: Assign roles (student, teacher, admin).
@@ -33,7 +37,8 @@ Analytics Dashboard: System-wide reports (active users, course popularity, compl
 Content Moderation: Ensure compliance with standards and remove inappropriate content.
 Platform Maintenance: Manage backups, updates, and deployment.
 
-Implementation Notes
+Implementation Notes: 
+
 Authentication & Authorization: Use Django’s built-in authentication with role-based access control.
 Frontend Views: React components tailored per role (e.g., student dashboard vs. teacher dashboard).
 API Layer: Django REST Framework endpoints secured with permissions (e.g., IsAdminUser, custom role-based permissions).
@@ -46,11 +51,27 @@ Progress table tracking completion.
 
 <img width="1394" height="838" alt="image" src="https://github.com/user-attachments/assets/d8f32d53-00af-4e91-8c20-5cb72ccd4a0f" />
 
-<img width="1393" height="877" alt="image" src="https://github.com/user-attachments/assets/dfcb93f4-f301-4782-8d1f-02cc4e5d95c3" />
+STUDENT DASHBOARD
+
+<img width="1765" height="959" alt="image" src="https://github.com/user-attachments/assets/620f1606-6388-49c9-8afa-f8f127b4d06b" />
+
+ENROLLMENT DATES
+<img width="1369" height="736" alt="image" src="https://github.com/user-attachments/assets/b371a49e-3ea0-4acd-bcbd-acd2e4e6da09" />
+
+SUBMISSION 
+
+<img width="777" height="893" alt="image" src="https://github.com/user-attachments/assets/f52b01df-363a-4adc-802a-7b91502edbf2" />
+
+PROFILE -showing Account Statistics
+<img width="1065" height="954" alt="image" src="https://github.com/user-attachments/assets/39873ba5-2274-46de-9b27-04c1db0ac5aa" />
+
+TEACHER DASHBOARD - to show creatng Assignments 
+
+<img width="1240" height="941" alt="image" src="https://github.com/user-attachments/assets/25930d41-54c0-4f27-b1b0-abcd30d9305d" />
 
 
 
-Tests have been carried out in Postman 
+Tests have been carried out in POSTMAN 
 
 
 
