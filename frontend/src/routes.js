@@ -73,7 +73,7 @@ const AppRoutes = () => {
         path="/dashboard"
         element={
           <ProtectedRoute>
-            <Navigate to="/student/dashboard" replace />
+            <DashboardRedirect />
           </ProtectedRoute>
         }
       />

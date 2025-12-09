@@ -5,13 +5,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getMyEnrollments } from '../../api/enrollments';
+import useAuth from '../../hooks/useAuth';
 import LoadingSpinner from '../common/LoadingSpinner';
 import ErrorMessage from '../common/ErrorMessage';
-import CourseCard from '../courses/CourseCard';
 import './MyEnrollments.css';
 
 const MyEnrollments = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
   
   const [enrollments, setEnrollments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,6 +36,7 @@ const MyEnrollments = () => {
 
   if (loading) return <LoadingSpinner message="Loading your courses..." />;
   if (error) return <ErrorMessage message={error} onRetry={fetchEnrollments} />;
+  if (!user) return <LoadingSpinner message="Loading user data..." />;
 
   return (
     <div className="my-enrollments-container">
@@ -50,12 +52,19 @@ const MyEnrollments = () => {
       ) : (
         <div className="enrollments-grid">
           {enrollments.map((enrollment) => (
-            <CourseCard
-              key={enrollment.id}
-              course={enrollment.course}
-              enrollmentDate={enrollment.date_enrolled}
-              onClick={() => navigate(`/courses/${enrollment.course.id}`)}
-            />
+            <div key={enrollment.id} className="course-card">
+              <h3>{enrollment.course.title}</h3>
+              <p>{enrollment.course.description}</p>
+              <p className="enrollment-date">
+                Enrolled: {new Date(enrollment.date_enrolled).toLocaleDateString()}
+              </p>
+              <button 
+                onClick={() => navigate(`/courses/${enrollment.course.id}`)}
+                className="btn btn-primary"
+              >
+                View Course
+              </button>
+            </div>
           ))}
         </div>
       )}

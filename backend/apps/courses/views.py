@@ -148,29 +148,39 @@ class EnrollmentViewSet(viewsets.ModelViewSet):
     # Require authentication for all actions
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        """
-        Filter enrollments based on user role.
-        
-        Returns:
-            QuerySet: Filtered enrollment queryset
-        
-        Filtering Rules:
-            - Teachers/Admins: See all enrollments (for management)
-            - Students: Only their own enrollments
-            - Others: Empty queryset
-        
-        Security:
-            Prevents students from viewing other students' enrollment data.
-        """
-        user = self.request.user
-        
-        # Teachers and admins see all enrollments
-        if hasattr(user, 'role') and user.role in ['teacher', 'admin']:
-            return Enrollment.objects.all()
-        
+def get_queryset(self):
+    """
+    Filter enrollments based on user role and query parameters.
+    
+    Returns:
+        QuerySet: Filtered enrollment queryset
+    
+    Filtering Rules:
+        - Teachers/Admins: See all enrollments (can filter by course)
+        - Students: Only their own enrollments
+        - Others: Empty queryset
+    
+    Query Parameters:
+        - course: Filter by course ID (e.g., ?course=1)
+    
+    Security:
+        Prevents students from viewing other students' enrollment data.
+    """
+    user = self.request.user
+    
+    # Teachers and admins see all enrollments
+    if hasattr(user, 'role') and user.role in ['teacher', 'admin']:
+        queryset = Enrollment.objects.all()
+    else:
         # Students only see their own enrollments
-        return Enrollment.objects.filter(student=user)
+        queryset = Enrollment.objects.filter(student=user)
+    
+    # Apply course filter if provided in query params
+    course_id = self.request.query_params.get('course', None)
+    if course_id is not None:
+        queryset = queryset.filter(course_id=course_id)
+    
+    return queryset
 
     def perform_create(self, serializer):
         """

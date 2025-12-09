@@ -82,20 +82,22 @@ const SubmitAssignmentForm = () => {
       setSubmitting(true);
 
       const submissionData = {
-        assignment: parseInt(id),
+        assignment: parseInt(id), // assignment ID is required
         content: formData.content.trim(),
         // Note: File upload may need FormData implementation
         // depending on your backend file handling
       };
 
+      // Call submitAssignment with submissionData (assignment ID is included in it)
       await submitAssignment(submissionData);
       
       // Success - redirect to assignment details
       alert('Assignment submitted successfully!');
       navigate(`/assignments/${id}`);
     } catch (err) {
-      setError(err.response?.data?.detail || 'Failed to submit assignment');
+      setError(err.response?.data?.detail || err.response?.data?.error || 'Failed to submit assignment');
       console.error('Error submitting assignment:', err);
+      console.error('Error response:', err.response?.data);
     } finally {
       setSubmitting(false);
     }

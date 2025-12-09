@@ -1,4 +1,4 @@
-import apiClient from './api';
+import apiClient from './axios';
 
 // ============= ASSIGNMENTS =============
 
@@ -48,11 +48,6 @@ export const gradeSubmission = async (submissionId, grade, feedback) => {
     grade,
     feedback
   });
-  return response.data;
-};
-
-export const getSubmission = async (id) => {
-  const response = await apiClient.get(`/assignments/submissions/${id}/`);
   return response.data;
 };
 

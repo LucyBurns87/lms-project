@@ -3,18 +3,6 @@ import apiClient from '../api/axios';
 import useAuth from '../hooks/useAuth';
 import "./TeacherDashboard.css";
 
-function CourseCard({ course, onDelete }) {
-  return (
-    <div className="course-card">
-      <h3>{course.title}</h3>
-      <p>{course.description}</p>
-      <button className="btn btn-primary">View Students</button>
-      <button className="btn btn-secondary">View Details</button>
-      <button className="btn btn-danger" onClick={() => onDelete(course.id)}>Delete</button>
-    </div>
-  );
-}
-
 function TeacherEnrollments({ courseId }) {
   const [enrollments, setEnrollments] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -22,7 +10,7 @@ function TeacherEnrollments({ courseId }) {
   useEffect(() => {
     async function fetchEnrollments() {
       try {
-        const response = await apiClient.get(`/enrollments/?course=${courseId}`);
+        const response = await apiClient.get(`/courses/enrollments/?course=${courseId}`);
         setEnrollments(response.data);
       } catch (error) {
         console.error("Error fetching enrollments:", error);
@@ -40,7 +28,7 @@ function TeacherEnrollments({ courseId }) {
       {enrollments.length > 0 ? (
         enrollments.map(e => (
           <li key={e.id}>
-            {e.student} — enrolled on {new Date(e.date_enrolled).toLocaleDateString()}
+            {e.student_username} — enrolled on {new Date(e.date_enrolled).toLocaleDateString()}
           </li>
         ))
       ) : (
@@ -50,22 +38,86 @@ function TeacherEnrollments({ courseId }) {
   );
 }
 
+function CreateCourseForm({ onCourseCreated, onCancel }) {
+  const [formData, setFormData] = useState({
+    title: '',
+    description: ''
+  });
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    try {
+      const response = await apiClient.post('/courses/', formData);
+      onCourseCreated(response.data);
+      alert('Course created successfully!');
+    } catch (err) {
+      setError(err.response?.data?.detail || 'Failed to create course');
+      console.error('Error creating course:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="create-course-form">
+      <h3>Create New Course</h3>
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label>Course Title</label>
+          <input
+            type="text"
+            value={formData.title}
+            onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+            required
+            maxLength={200}
+            placeholder="e.g., Introduction to Python"
+          />
+        </div>
+        <div className="form-group">
+          <label>Description</label>
+          <textarea
+            value={formData.description}
+            onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+            rows={4}
+            placeholder="Course description..."
+          />
+        </div>
+        <div className="form-actions">
+          <button type="submit" className="btn btn-primary" disabled={loading}>
+            {loading ? 'Creating...' : 'Create Course'}
+          </button>
+          <button type="button" className="btn btn-secondary" onClick={onCancel}>
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  );
+}
+
 function TeacherDashboard() {
   const { user } = useAuth();
   const [submissions, setSubmissions] = useState([]);
   const [courses, setCourses] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [showCreateForm, setShowCreateForm] = useState(false);
 
-useEffect(() => {
-  if (!user) return;
-  
+  useEffect(() => {
+    if (!user) return;
+    fetchData();
+  }, [user]);
+
   async function fetchData() {
     setLoading(true);
     try {
-      
       const coursesResponse = await apiClient.get(`/courses/?created_by=${user.id}`);
-      
       setCourses(coursesResponse.data);
       setSubmissions([]); // Empty for now until we have assignments
     } catch (error) {
@@ -75,12 +127,11 @@ useEffect(() => {
       setLoading(false);
     }
   }
-  fetchData();
-}, [user]);
 
-  if (!user) return <p>Loading user data...</p>;
-  if (loading) return <p>Loading teacher dashboard...</p>;
-  if (error) return <p style={{ color: 'red' }}>{error}</p>;
+  const handleCourseCreated = (newCourse) => {
+    setCourses([...courses, newCourse]);
+    setShowCreateForm(false);
+  };
 
   const handleGradeSubmission = async (submissionId) => {
     const grade = prompt("Enter grade (0-100):");
@@ -94,7 +145,6 @@ useEffect(() => {
         feedback: feedback
       });
       alert("Submission graded successfully!");
-      // Refresh submissions
       const response = await apiClient.get("/assignments/submissions/");
       setSubmissions(response.data);
     } catch (error) {
@@ -116,6 +166,7 @@ useEffect(() => {
     }
   };
 
+  if (!user) return <p>Loading user data...</p>;
   if (loading) return <p>Loading teacher dashboard...</p>;
   if (error) return <p style={{ color: 'red' }}>{error}</p>;
 
@@ -145,7 +196,25 @@ useEffect(() => {
       </section>
 
       <section>
-        <h2>My Courses</h2>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <h2>My Courses</h2>
+          {!showCreateForm && (
+            <button 
+              className="btn btn-primary"
+              onClick={() => setShowCreateForm(true)}
+            >
+              + Create Course
+            </button>
+          )}
+        </div>
+
+        {showCreateForm && (
+          <CreateCourseForm
+            onCourseCreated={handleCourseCreated}
+            onCancel={() => setShowCreateForm(false)}
+          />
+        )}
+
         {courses.length > 0 ? (
           <div className="courses-grid">
             {courses.map(course => (

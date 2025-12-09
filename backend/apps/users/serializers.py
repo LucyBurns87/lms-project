@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from django.db.models import Avg, Count
+
 
 """
 Serializers for the Users application.
@@ -14,8 +16,13 @@ class UserSerializer(serializers.ModelSerializer):
     """
     Basic serializer for User model.
     Used for displaying user information in API responses.
- 
+    Includes statistics for student dashboard.
     """
+    # Add computed fields for statistics
+    submissions_count = serializers.SerializerMethodField()
+    enrollments_count = serializers.SerializerMethodField()
+    average_grade = serializers.SerializerMethodField()
+    
     class Meta:
         """
         Metadata for UserSerializer.
@@ -25,29 +32,36 @@ class UserSerializer(serializers.ModelSerializer):
         
         # Fields to include in serialization
         fields = [
-            'id',           # Primary key (read-only)
-            'username',     # Login username
-            'email',        # Email address
-            'role',         # User role (student/teacher/admin)
-            'first_name',   # First name
-            'last_name'     # Last name
+            'id',                  # Primary key (read-only)
+            'username',            # Login username
+            'email',               # Email address
+            'role',                # User role (student/teacher/admin)
+            'first_name',          # First name
+            'last_name',           # Last name
+            'submissions_count',   # Number of submissions
+            'enrollments_count',   # Number of enrolled courses
+            'average_grade',       # Average grade across submissions
         ]
         
         # Only id is read-only; other fields can be updated
-        read_only_fields = ['id']
-        
-        # Optional: Add validation
-        # extra_kwargs = {
-        #     'email': {'required': True},
-        #     'username': {'min_length': 3, 'max_length': 150}
-        # }
-
+        read_only_fields = ['id', 'submissions_count', 'enrollments_count', 'average_grade']
+    
+    def get_submissions_count(self, obj):
+        """Get total number of submissions by this user"""
+        return obj.submissions.count()
+    
+    def get_enrollments_count(self, obj):
+        """Get total number of course enrollments by this user"""
+        return obj.enrollments.count()
+    
+    def get_average_grade(self, obj):
+        """Get average grade across all graded submissions"""
+        avg = obj.submissions.filter(grade__isnull=False).aggregate(Avg('grade'))['grade__avg']
+        if avg is not None:
+            return round(avg, 1)
+        return None
 
 class RegisterSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['username', 'email', 'password']
-
     """
     Serializer for user registration.
     Handles creation of new user accounts with password hashing.
@@ -108,7 +122,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         username = validated_data['username']
         email = validated_data['email']
         password = validated_data['password']
-        role = validated_data.get('role', 'student')
+        # Force role to 'student' for registration form (only students can self-register)
+        role = 'student'  # Override any role sent from frontend
         first_name = validated_data.get('first_name', '')
         last_name = validated_data.get('last_name', '')
         

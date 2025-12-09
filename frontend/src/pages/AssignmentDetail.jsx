@@ -50,13 +50,14 @@ const AssignmentDetail = () => {
     }
   };
 
-  /**
+   /**
    * Handle assignment submission (student)
    */
   const handleSubmit = async (submissionData) => {
     try {
       setSubmitting(true);
-      await submitAssignment(id, submissionData);
+      // submitAssignment now takes just submissionData (which includes assignment ID)
+      await submitAssignment(submissionData);
       alert('Assignment submitted successfully!');
       setShowSubmitForm(false);
       fetchAssignment(); // Refresh to show submitted status

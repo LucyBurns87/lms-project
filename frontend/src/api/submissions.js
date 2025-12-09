@@ -1,7 +1,7 @@
 /**
  * Submission API calls
  */
-import apiClient from './apiClient';
+import apiClient from './axios';
 
 // Get all submissions (filtered by role on backend)
 export const getSubmissions = async (assignmentId = null) => {
@@ -18,13 +18,9 @@ export const getSubmission = async (id) => {
   return response.data;
 };
 
-// Submit assignment (student)
-export const submitAssignment = async (assignmentId, submissionData) => {
-  const response = await apiClient.post('/assignments/submissions/', {
-    assignment: assignmentId,
-    content: submissionData.content,
-    file: submissionData.file,
-  });
+// Submit assignment (student) - using simple endpoint
+export const submitAssignment = async (submissionData) => {
+  const response = await apiClient.post('/assignments/simple-submit/', submissionData);
   return response.data;
 };
 
