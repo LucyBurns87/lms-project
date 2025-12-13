@@ -1,4 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
+
+def health_check(request):
+    """Health check endpoint for Render deployment monitoring."""
+    return JsonResponse({'status': 'healthy', 'service': 'LMS Backend'})
 
 def landing_page(request):
     return HttpResponse("""
