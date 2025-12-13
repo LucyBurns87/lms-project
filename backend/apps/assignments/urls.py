@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import AssignmentViewSet, SubmissionViewSet, test_submission
+from .views import AssignmentViewSet, SubmissionViewSet
 from .simple_views import simple_submit
 
 """
@@ -25,8 +25,7 @@ router.register(
 
 # URL patterns - add direct path BEFORE router
 urlpatterns = [
-    path('test-submission/', test_submission, name='test-submission'),
-    path('simple-submit/', simple_submit, name='simple-submit'),  # NEW
+    path('simple-submit/', simple_submit, name='simple-submit'),
     path('submissions/', SubmissionViewSet.as_view({'get': 'list', 'post': 'create'}), name='submission-create'),
     path('', include(router.urls)),
 ]
