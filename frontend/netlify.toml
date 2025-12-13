@@ -3,6 +3,10 @@
   command = "npm run build"
   publish = "build"
 
+[build.environment]
+  CI = "false"
+  REACT_APP_API_URL = "https://lms-project-krr3.onrender.com/api"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
