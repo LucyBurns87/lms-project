@@ -1,10 +1,12 @@
+// frontend/src/api/apiClient.js
 /**
  * Enhanced API client with better error handling
  */
 import axios from 'axios';
+import config from './config';
 
 const apiClient = axios.create({
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:8000/api',
+  baseURL: config.API_URL,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -37,7 +39,7 @@ apiClient.interceptors.response.use(
         if (!refresh) throw new Error('No refresh token');
 
         const response = await axios.post(
-          `${process.env.REACT_APP_API_URL || 'http://localhost:8000/api'}/token/refresh/`,
+          `${config.API_URL}/token/refresh/`,
           { refresh }
         );
 

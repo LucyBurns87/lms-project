@@ -20,6 +20,7 @@ Authentication:
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
+from .views import health_check
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -27,6 +28,7 @@ from rest_framework_simplejwt.views import (
 
 # Define URL patterns for the entire application
 urlpatterns = [
+    path('health/', health_check, name='health_check'),
     # Root URL - Redirect to admin panel
     # GET / -> Redirects to /admin/
     # permanent=False means this is a temporary redirect (302)

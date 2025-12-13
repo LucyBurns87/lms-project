@@ -1,5 +1,6 @@
 import API from "./axios";
 
+
 export async function enrollInCourse(courseId) {
   return API.post("/courses/enrollments/", { course: courseId });
 }

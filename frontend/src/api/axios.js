@@ -1,8 +1,10 @@
+// frontend/src/api/axios.js
 import axios from "axios";
 import { refreshToken } from "./auth";
+import config from "../config";
 
 const API = axios.create({
-  baseURL: "http://localhost:8000/api", // Django backend
+  baseURL: config.API_URL,
   headers: {
     "Content-Type": "application/json",
   },

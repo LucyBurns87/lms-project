@@ -1,20 +1,19 @@
 import axios from 'axios';
-
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
+import config from '../config';
 
 const apiClient = axios.create({
-    baseURL: API_URL,
+    baseURL: config.API_URL,
     headers: {
         'Content-Type': 'application/json',
     },
 });
 
-// Add token to requests
+// Add JWT token to requests
 apiClient.interceptors.request.use(
     (config) => {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('access');
         if (token) {
-            config.headers.Authorization = `Token ${token}`;
+            config.headers.Authorization = `Bearer ${token}`;
         }
         return config;
     },

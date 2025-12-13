@@ -20,57 +20,66 @@ class AssignmentViewSet(viewsets.ModelViewSet):
     """
     ViewSet for managing assignments.
     Provides CRUD operations with role-based permissions.
+    
+    Permissions:
+        - List/Retrieve: Any authenticated user
+        - Create/Update/Delete: Teachers and Admins only
     """
     queryset = Assignment.objects.all()
     serializer_class = AssignmentSerializer
 
     def get_permissions(self):
         """Determine permissions based on the action."""
-       # TEMPORARY - Allow all authenticated users for testing
+        if self.action in ['create', 'update', 'partial_update', 'destroy']:
+            # Only teachers and admins can modify assignments
+            return [IsAuthenticated(), IsTeacherOrAdmin()]
+        # Anyone authenticated can view assignments
         return [IsAuthenticated()]
 
 
 class SubmissionViewSet(viewsets.ModelViewSet):
     """
     ViewSet for managing assignment submissions.
+    
+    Permissions:
+        - Create: Students only (auto-assigned to current user)
+        - View: Students see their own, Teachers/Admins see all
+        - Update/Delete: Teachers/Admins only (for grading)
     """
     queryset = Submission.objects.all()
     serializer_class = SubmissionSerializer
-    http_method_names = ['get', 'post', 'put', 'patch', 'delete', 'head', 'options']  # ADD THIS LINE
+    permission_classes = [IsAuthenticated]  # Base requirement
 
     def get_permissions(self):
         """Determine permissions based on the action."""
-        return []  # No permissions for testing
+        if self.action == 'create':
+            # Only students can create submissions
+            return [IsAuthenticated(), IsStudent()]
+        elif self.action in ['update', 'partial_update', 'destroy']:
+            # Only teachers/admins can update or delete (for grading)
+            return [IsAuthenticated(), IsTeacherOrAdmin()]
+        # List and retrieve use get_queryset filtering
+        return [IsAuthenticated()]
     
     def get_queryset(self):
         """Filter submissions based on user role."""
-        # Simplified for testing
-        return Submission.objects.all()
+        user = self.request.user
+        
+        # Teachers and admins can see all submissions
+        if hasattr(user, 'role') and user.role in ['teacher', 'admin']:
+            return Submission.objects.all()
+        
+        # Students only see their own submissions
+        return Submission.objects.filter(student=user)
 
     def perform_create(self, serializer):
         """Automatically set the student when creating a submission."""
         serializer.save(student=self.request.user)
-    
-    def create(self, request, *args, **kwargs):
-        """Explicitly handle POST requests."""
-        print("\n" + "="*60)
-        print("CREATE METHOD CALLED")
-        print(f"User: {request.user}")
-        print(f"Authenticated: {request.user.is_authenticated}")
-        print(f"Role: {request.user.role if hasattr(request.user, 'role') else 'NO ROLE'}")
-        print(f"Data: {request.data}")
-        print("="*60 + "\n")
-        return super().create(request, *args, **kwargs)
 
 
-@api_view(['POST', 'GET'])
-@permission_classes([IsAuthenticated])
-def test_submission(request):
-    """Test endpoint to verify POST works"""
-    print("\n" + "="*60)
-    print("TEST ENDPOINT HIT!")
-    print(f"Method: {request.method}")
-    print(f"User: {request.user}")
-    print(f"Data: {request.data}")
-    print("="*60 + "\n")
-    return Response({"status": "test endpoint works", "method": request.method})
+# Remove test endpoints for production
+# @api_view(['POST', 'GET'])
+# @permission_classes([IsAuthenticated])
+# def test_submission(request):
+#     """Test endpoint - REMOVE IN PRODUCTION"""
+#     return Response({"status": "test endpoint works", "method": request.method})

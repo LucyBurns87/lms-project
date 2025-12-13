@@ -1,3 +1,5 @@
+# backend/apps/assignments/simple_views.py
+
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
@@ -40,23 +42,26 @@ def simple_submit(request):
             )
         
         with open(log_file, 'a') as f:
-            f.write(f"Creating submission...\n")
+            f.write(f"Creating/Updating submission...\n")
         
-        submission = Submission.objects.create(
+        # Use update_or_create to handle resubmissions
+        submission, created = Submission.objects.update_or_create(
             assignment_id=assignment_id,
             student=request.user,
-            content=content
+            defaults={'content': content}
         )
         
         with open(log_file, 'a') as f:
-            f.write(f"SUCCESS! Created submission ID: {submission.id}\n")
+            action = "Created" if created else "Updated"
+            f.write(f"SUCCESS! {action} submission ID: {submission.id}\n")
         
         return Response({
             "id": submission.id,
-            "message": "Submission created successfully!",
+            "message": f"Submission {'created' if created else 'updated'} successfully!",
             "assignment": assignment_id,
-            "student": request.user.username
-        }, status=status.HTTP_201_CREATED)
+            "student": request.user.username,
+            "created": created
+        }, status=status.HTTP_200_OK)  # Changed to 200 OK for consistency
         
     except Exception as e:
         error_msg = str(e)

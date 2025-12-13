@@ -1,0 +1,313 @@
+
+============================================================
+NEW REQUEST: 2025-12-10 08:52:12.336653
+User: LucyAC (authenticated: True)
+Method: POST
+Content-Type: application/json
+Data: {'assignment': 2, 'content': 'html form'}
+============================================================
+Parsed - assignment_id: 2, content length: 9
+Creating submission...
+ERROR OCCURRED!
+Error: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+Traceback:
+Traceback (most recent call last):
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\apps\assignments\simple_views.py", line 45, in simple_submit
+    submission = Submission.objects.create(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 660, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1810, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+
+User: LucyAC
+Data: {'assignment': 2, 'content': 'html form'}
+
+============================================================
+NEW REQUEST: 2025-12-10 08:52:14.895094
+User: LucyAC (authenticated: True)
+Method: POST
+Content-Type: application/json
+Data: {'assignment': 2, 'content': 'html form'}
+============================================================
+Parsed - assignment_id: 2, content length: 9
+Creating submission...
+ERROR OCCURRED!
+Error: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+Traceback:
+Traceback (most recent call last):
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\apps\assignments\simple_views.py", line 45, in simple_submit
+    submission = Submission.objects.create(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 660, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1810, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+
+User: LucyAC
+Data: {'assignment': 2, 'content': 'html form'}
+
+============================================================
+NEW REQUEST: 2025-12-10 22:01:51.828236
+User: student (authenticated: True)
+Method: POST
+Content-Type: multipart/form-data; boundary=BoUnDaRyStRiNg; charset=utf-8
+Data: <QueryDict: {'assignment': ['1'], 'content': ['Updated submission']}>
+============================================================
+Parsed - assignment_id: 1, content length: 18
+Creating submission...
+ERROR OCCURRED!
+Error: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+Traceback:
+Traceback (most recent call last):
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\apps\assignments\simple_views.py", line 45, in simple_submit
+    submission = Submission.objects.create(
+        assignment_id=assignment_id,
+        student=request.user,
+        content=content
+    )
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\query.py", line 660, in create
+    obj.save(force_insert=True, using=self.db)
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+    ~~~~~~~~~~~~~~^
+        using=using,
+        ^^^^^^^^^^^^
+    ...<2 lines>...
+        update_fields=update_fields,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+        raw,
+    ...<4 lines>...
+        update_fields,
+    )
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+        cls._base_manager, using, fields, returning_fields, raw
+    )
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ~~~~~~~~~~~~~~~^
+        [self],
+        ^^^^^^^
+    ...<3 lines>...
+        raw=raw,
+        ^^^^^^^^
+    )
+    ^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\query.py", line 1810, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sql, params, many=False, executor=self._execute
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\lacbu\Desktop\PROJECT_LMS\lms-project\backend\venv\Lib\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: assignments_submission.assignment_id, assignments_submission.student_id
+
+
+User: student
+Data: <QueryDict: {'assignment': ['1'], 'content': ['Updated submission']}>
+
+============================================================
+NEW REQUEST: 2025-12-10 22:01:52.274105
+User: student (authenticated: True)
+Method: POST
+Content-Type: multipart/form-data; boundary=BoUnDaRyStRiNg; charset=utf-8
+Data: <QueryDict: {'assignment': ['1'], 'content': ['My submission content']}>
+============================================================
+Parsed - assignment_id: 1, content length: 21
+Creating submission...
+SUCCESS! Created submission ID: 1
+
+============================================================
+NEW REQUEST: 2025-12-10 22:13:42.092494
+User: student (authenticated: True)
+Method: POST
+Content-Type: multipart/form-data; boundary=BoUnDaRyStRiNg; charset=utf-8
+Data: <QueryDict: {'assignment': ['1'], 'content': ['Updated submission']}>
+============================================================
+Parsed - assignment_id: 1, content length: 18
+Creating/Updating submission...
+SUCCESS! Updated submission ID: 1
+
+============================================================
+NEW REQUEST: 2025-12-10 22:13:42.531000
+User: student (authenticated: True)
+Method: POST
+Content-Type: multipart/form-data; boundary=BoUnDaRyStRiNg; charset=utf-8
+Data: <QueryDict: {'assignment': ['1'], 'content': ['My submission content']}>
+============================================================
+Parsed - assignment_id: 1, content length: 21
+Creating/Updating submission...
+SUCCESS! Created submission ID: 1
+
+============================================================
+NEW REQUEST: 2025-12-10 22:18:11.706975
+User: student (authenticated: True)
+Method: POST
+Content-Type: multipart/form-data; boundary=BoUnDaRyStRiNg; charset=utf-8
+Data: <QueryDict: {'assignment': ['1'], 'content': ['Updated submission']}>
+============================================================
+Parsed - assignment_id: 1, content length: 18
+Creating/Updating submission...
+SUCCESS! Updated submission ID: 1
+
+============================================================
+NEW REQUEST: 2025-12-10 22:18:12.159109
+User: student (authenticated: True)
+Method: POST
+Content-Type: multipart/form-data; boundary=BoUnDaRyStRiNg; charset=utf-8
+Data: <QueryDict: {'assignment': ['1'], 'content': ['My assignment submission']}>
+============================================================
+Parsed - assignment_id: 1, content length: 24
+Creating/Updating submission...
+SUCCESS! Created submission ID: 1
