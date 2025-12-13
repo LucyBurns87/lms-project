@@ -1,8 +1,28 @@
 from django.http import HttpResponse, JsonResponse
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
 def health_check(request):
     """Health check endpoint for Render deployment monitoring."""
     return JsonResponse({'status': 'healthy', 'service': 'LMS Backend'})
+
+@api_view(['GET'])
+def api_root(request):
+    """API root endpoint showing available API endpoints."""
+    return Response({
+        'message': 'LMS Backend API',
+        'version': '1.0',
+        'endpoints': {
+            'authentication': {
+                'login': '/api/token/',
+                'refresh': '/api/token/refresh/',
+            },
+            'users': '/api/users/',
+            'courses': '/api/courses/',
+            'assignments': '/api/assignments/',
+            'quizzes': '/api/quizzes/',
+        }
+    })
 
 def landing_page(request):
     return HttpResponse("""
